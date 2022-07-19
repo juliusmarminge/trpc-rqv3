@@ -1,17 +1,6 @@
 // @ts-check
 import { serverSchema } from "./schema.mjs";
-import { env as clientEnv } from "./client.mjs";
-
-const formatErrors = (
-  /** @type {import('zod').ZodFormattedError<Map<string,string>,string>} */
-  errors
-) =>
-  Object.entries(errors)
-    .map(([name, value]) => {
-      if (value && "_errors" in value)
-        return `${name}: ${value._errors.join(", ")}\n`;
-    })
-    .filter(Boolean);
+import { env as clientEnv, formatErrors } from "./client.mjs";
 
 const serverEnv = serverSchema.safeParse(process.env);
 

@@ -1,7 +1,7 @@
 // @ts-check
 import { clientSchema, clientEnv } from "./schema.mjs";
 
-const formatErrors = (
+export const formatErrors = (
   /** @type {import('zod').ZodFormattedError<Map<string,string>,string>} */
   errors
 ) =>
